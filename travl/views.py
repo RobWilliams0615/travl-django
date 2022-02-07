@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from travl.models import Facility, Location
+from travl.models import Facility, Location, User
 from rest_framework import generics
 from .serializers import FacilitySerializer, LocationSerializer, UserSerializer
 # Create your views here.
@@ -27,10 +27,10 @@ class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class UserList(generics.ListCreateAPIView):
-    queryset = Location.objects.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Location.objects.all()
+    queryset = User.objects.all()
     serializer_class = UserSerializer
