@@ -31,7 +31,7 @@ class LocationSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Location
-        fields = ('id', 'facility', 'facility_id', 'country', 'state', 'city')
+        fields = ('id', 'facility', 'facility_id', 'country', 'state', 'city',)
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -46,4 +46,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'facility', 'facility_url', 'first_name',
-                  'last_name', 'email', 'password', '')
+                  'last_name', 'email', 'password', 'facilities',)
