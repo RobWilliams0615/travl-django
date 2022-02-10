@@ -11,10 +11,14 @@ class FacilitySerializer(serializers.HyperlinkedModelSerializer):
     facility_url = serializers.ModelSerializer.serializer_url_field(
         view_name='facility_detail'
     )
+    user_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(),
+        source='user'
+    )
 
     class Meta:
         model = Facility
-        fields = ('id', 'facility_url', 'name',
+        fields = ('id', 'facility_url', 'user_id', 'name',
                   'details', 'photo_url', 'address', 'phone', 'email', 'parking_info', 'acc_entrance', 'acc_restroom', 'open_now', 'locations',)
 
 
